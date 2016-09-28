@@ -1,0 +1,30 @@
+import java.io.IOException;
+
+public class Test {  
+    public static void main(String[] args) {  
+        try{  
+            StringBuffer sb = new StringBuffer();  
+            sb.append("为了联盟\n");  
+            sb.append("for the alliance\n");  
+            
+            FileImageCreator creator = new FileImageCreator(new SimpleDrawer(), "c:\\img4.jpeg");  
+            creator.setWidth(500); //图片宽度  
+            creator.setHeight(500); //图片高度  
+            creator.setLineNum(30); //干扰线条数  
+            creator.setFontSize(22); //字体大小  
+            creator.setFontName("楷体");  
+              
+            //文字旋转  
+            creator.setRadian(30.0); //旋转弧度  
+            creator.setRotateX(creator.getWidth()/5);  
+            creator.setRotateY(creator.getHeight()*5/10);  
+              
+            creator.generateImage(sb.toString());  
+              
+            System.out.println("ok");  
+              
+        }catch(IOException ex){  
+            ex.printStackTrace();  
+        }  
+    }  
+}  
